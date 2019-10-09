@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 const Home = resolve => require(['@/components/home/index'], resolve)
 const Login = resolve => require(['@/components/Login/index'], resolve)
+const Search = resolve => require(['@/components/Search/index'], resolve)
 
 let routes = [
   {
@@ -15,6 +16,11 @@ let routes = [
     path:'/login',
     name: Login,
     component: Login
+  },
+  {
+    path:'/search',
+    name: Search,
+    component: Search
   }
 ]
 
