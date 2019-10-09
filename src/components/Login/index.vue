@@ -1,6 +1,7 @@
 <template>
   <div class="login-container">
     <p>login页面</p>
+    <i class="iconfont iconsousuo" ></i>
 
   </div>
 </template>
@@ -12,15 +13,14 @@
       }
     },
     mounted(){
-      this.test()
+      // this.test()
     },
     methods: {
       test() {
         var _params ={
           phone:'13249831822',
-          password:'12345ww'
         }
-        this.http.send({ command: '/login/cellphone',params:_params })
+        this.http.send({ command: '/captcha/sent',params:_params })
           .then(function (res) {
             console.log(res)
 
