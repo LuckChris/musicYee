@@ -1,8 +1,8 @@
 <template>
   <div class="home-container">
     <div class="tab-container">
-      <div class="tab-header" style="display: flex;justify-content: space-between;align-items: center;padding: 0 .2rem;">
-        <div class="slider" style="width: .5rem;"><i class="iconfont icongengduo"></i></div>
+      <div class="tab-header flex-between-center">
+        <div class="slider" style="width: .5rem;" @click="showSliderHandler"><i class="iconfont icongengduo"></i></div>
         <mt-navbar class="page-part" v-model="selected" style="width: 6.5rem;">
           <mt-tab-item id="1">我的</mt-tab-item>
           <mt-tab-item id="2">发现</mt-tab-item>
@@ -27,8 +27,7 @@
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
-
-
+    <HomeSlider v-if="$store.state.showSlider"></HomeSlider>
   </div>
 </template>
 <script>
@@ -36,27 +35,42 @@
   import FindCenter from './find'
   import FriendCenter from './friends'
   import VideoCenter from './video'
+  import HomeSlider from '@/components/Slider/index'
   export default {
     name: 'home',
     components:{
       MyCenter,
       FindCenter,
       FriendCenter,
-      VideoCenter
+      VideoCenter,
+      HomeSlider
 
     },
     data() {
       return {
-        selected: '1'
+        selected: '1',
 
       }
     },
     methods:{
+      // 搜索
       searchHandler() {
         this.$router.push({
           path:'/search'
         })
+      },
+
+      // 展示左边侧边栏
+      showSliderHandler() {
+        this.$store.commit('modifySlider', true)
       }
     }
   }
 </script>
+<style lang="less">
+  .tab-header{
+    padding: 0 .2rem;margin-bottom: .2rem;
+  }
+
+
+</style>

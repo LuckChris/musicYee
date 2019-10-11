@@ -1,0 +1,45 @@
+
+@black-color:#3d3d3d;
+@color-999:#999;
+@color-f0f0:#ECECEC;
+@color-fff:#FFF;
+
+//   黑版颜色 #18191B
+
+.ye-bgColor1 {
+  background: @color-f0f0;
+}
+.ye-bgColor2 {
+  background: @color-fff;
+}
+.ye-color1{
+  color: @color-999;
+}
+.ye-color2{
+  color:#dd001b;
+}
+.ye-color3{
+  color: red;
+}
+.ye-borderColor{
+  border-bottom-color:@color-f0f0!important;
+}
+// 白天颜色
+.bgColor-white{
+  background: #ffffff;
+}
+
+// 夜间颜色
+.bgColor-dark{
+  background: #18191B;
+}
+.styleChange(@theme) {
+  //@bgColor:'bgColor-@{theme}';
+  background: @theme;
+}
+.test{
+  .styleChange(#ffffff);
+}
+.test-dark{
+  .styleChange(#18191B);
+}
