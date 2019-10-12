@@ -1,45 +1,77 @@
 
-@black-color:#3d3d3d;
-@color-999:#999;
-@color-f0f0:#ECECEC;
-@color-fff:#FFF;
+@ye-border1:#ECECEC; // slider 白天边框的颜色
+@ye-border2:#212224; // slider 夜间边框的颜色
+@ye-bgColor1:#fff; // 白天背景颜色
+@ye-bgColor2:#18191B; // 夜间背景颜色
+@ye-bgColor3:#ECECEC; // 白天slider头部背景颜色
+@ye-bgColor4:#2b262c; // 夜间slider头部背景颜色
+@ye-color1:  #999; // 白天字体颜色
+@ye-color2:  #3d3d3d; // 白天选中字体颜色
+@ye-color3:  #727375; // 夜间字体颜色
+@ye-color4:  #2b262c; // 夜间字体颜色
+@ye-color5:  #ffffff; // 夜间选中字体颜色
 
-//   黑版颜色 #18191B
+
+/**
+黑版 背景色  #18191B 字体色：#7e7e7e(选中)  #727375普通颜色
+白版 背景色  #ffffff  字体色 #3d3d3d(选中)   #999
+
+**/
 
 .ye-bgColor1 {
-  background: @color-f0f0;
+  background: @ye-bgColor3;
 }
 .ye-bgColor2 {
-  background: @color-fff;
+  background: @ye-color5;
 }
 .ye-color1{
-  color: @color-999;
+  color: @ye-color1;
 }
 .ye-color2{
   color:#dd001b;
 }
-.ye-color3{
-  color: red;
+
+.themColor(
+  @bgColor: @ye-bgColor1, // 默认背景色
+  @fontColor: @ye-color1, // 字体颜色
+  @fontSelect:@ye-color2, // 选中字体颜色
+  @bgColor1:@ye-bgColor3, // slider 头部背景颜色
+  @bdColor:@ye-border1 // slider 边框颜色
+) {
+  background: @bgColor;
+  color: @fontColor;
+  .mint-navbar .mint-tab-item{
+    color: @fontColor;
+  }
+  .mint-navbar .mint-tab-item.is-selected {
+    color: @fontSelect !important;
+    border-bottom: none !important;
+  }
+  .mint-popup{
+    background: @bgColor;
+  }
+  // slider 底部的颜色
+  .slider-div3{
+    background: @bgColor;
+  }
+  // slider 头部的颜色
+  .slider-header{
+    background: @bgColor1;
+  }
+  .ye-borderColor{
+    border-bottom-color:@bdColor!important;
+  }
 }
-.ye-borderColor{
-  border-bottom-color:@color-f0f0!important;
+.them{
+  .themColor()
 }
-// 白天颜色
-.bgColor-white{
-  background: #ffffff;
+.them-dark{
+  .themColor(
+    @ye-bgColor2 ,
+    @ye-color3,
+    @ye-color5,
+    @ye-color4,
+    @ye-border2
+  )
 }
 
-// 夜间颜色
-.bgColor-dark{
-  background: #18191B;
-}
-.styleChange(@theme) {
-  //@bgColor:'bgColor-@{theme}';
-  background: @theme;
-}
-.test{
-  .styleChange(#ffffff);
-}
-.test-dark{
-  .styleChange(#18191B);
-}

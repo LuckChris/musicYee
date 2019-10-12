@@ -2,7 +2,7 @@
   <div class="slider-container">
     <mt-popup v-model="$store.state.showSlider"  position="left">
       <div style="height: 100%;overflow: scroll">
-        <div class="slider-header ye-bgColor1">
+        <div class="slider-header">
           <div style="text-align: center;padding-top: .6rem; " class="ye-color1">
             <p >登录网易云音乐</p>
             <p style='padding: .1rem 0 .3rem;'>手机电脑多端同步，尽享海量高品质音乐</p>
@@ -35,11 +35,15 @@
             <span class="ye-font-size-32">{{item.name}}</span>
           </div>
         </div>
-        <div class="slider-div3 ye-bgColor2">
+        <div class="slider-div3 ">
           <ul class="flex-between-center">
-            <li @click="changeColor">
+            <li @click="changeColor" v-if="$store.state.settingColor">
               <i class="iconfont iconyueliang ye-font-size-40"></i>
               <span>夜间模式</span>
+            </li>
+            <li @click="changeColor" v-else>
+              <i class="iconfont iconyueliang ye-font-size-40"></i>
+              <span>白天模式</span>
             </li>
             <li>
               <i class="iconfont iconshezhi ye-font-size-40 "></i>
@@ -87,9 +91,13 @@
       },
 
       changeColor() {
-
-        // document.getElementById('app').className = 'test' + '-dark'
-        document.getElementsByClassName('slider-header')[0].className = 'test-dark'
+        if(this.$store.state.settingColor) {
+          document.getElementById('app').className = 'them' + '-dark'
+          this.$store.commit('modifyTheme', false)
+        } else {
+          this.$store.commit('modifyTheme', true)
+          document.getElementById('app').className = 'them'
+        }
       }
     }
   }
@@ -97,6 +105,9 @@
 <style lang="less">
   .mint-popup{
     width: 72%;height: 100%;transition: .2s ease-out;
+  }
+  .mint-navbar{
+    background: none;
   }
   .slider-header{
     height: 3.4rem;
