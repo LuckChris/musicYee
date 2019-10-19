@@ -49,9 +49,9 @@ self.send = function (_options) {
             spinnerType: 'fading-circle'
           })
         }, 10)
-        if(res.data && res.data.code == 200) {
-          return res.data
-        }
+      }
+      if(res.data && res.data.code == 200) {
+        return res.data
       }
 
 

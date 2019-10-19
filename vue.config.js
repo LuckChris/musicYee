@@ -2,7 +2,7 @@
 module.exports = {
   devServer: {
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: '10.0.6.34', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     open: true,
     proxy: {// 输入/api 让其去访问http://localhost:3000/api
