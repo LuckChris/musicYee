@@ -30,9 +30,13 @@
           </div>
         </div>
         <div class="slider-div2">
+
           <div v-for="(item,index) in sliderList" :key="index" class="item-list">
-            <i class="iconfont  ye-font-size-50" :class="item.icon" style="vertical-align: middle;padding-right: .2rem;"></i>
-            <span class="ye-font-size-32">{{item.name}}</span>
+            <router-link :to="{path: item.path }">
+              <i class="iconfont  ye-font-size-50" :class="item.icon" style="vertical-align: middle;padding-right: .2rem;"></i>
+              <span class="ye-font-size-32">{{item.name}}</span>
+            </router-link>
+
           </div>
         </div>
         <div class="slider-div3 ">
@@ -69,7 +73,7 @@
           {icon:'icongouwuche',name:'商城'},
           {icon:'iconfujin',name:'附近的人'},
           {icon:'iconlingsheng',name:'口袋铃声'},
-          {icon:'iconwodedingdan',name:'我的订单'},
+          {icon:'iconwodedingdan',name:'我的订单',path:'/order'},
           {icon:'icondingshi',name:'定时停止播放'},
           {icon:'icon552dc065f0478',name:'扫一扫'},
           {icon:'iconnaozhong',name:'音乐闹钟'},

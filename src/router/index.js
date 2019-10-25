@@ -6,6 +6,7 @@ const Home = resolve => require(['@/components/home/index'], resolve)
 const Login = resolve => require(['@/components/Login/index'], resolve)
 const Search = resolve => require(['@/components/Search/index'], resolve)
 const Slider = resolve => require(['@/components/Slider/index'], resolve)
+const Order = resolve => require(['@/components/MyOrder/index'], resolve)
 
 let routes = [
   {
@@ -27,6 +28,14 @@ let routes = [
     path:'/slider',
     name: Slider,
     component: Slider
+  },
+  {
+    path: '/order',
+    name: Order,
+    component: Order,
+    meta: {
+      auth: true
+    }
   }
 ]
 

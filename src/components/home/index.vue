@@ -48,9 +48,13 @@
     },
     data() {
       return {
-        selected: '1',
+        selected: '2',
 
       }
+    },
+    mounted() {
+      this.util.set('test','aaaaa')
+
     },
     methods:{
       // 搜索

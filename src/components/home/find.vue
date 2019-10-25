@@ -10,7 +10,14 @@
       </mt-swipe>
     </div>
     <div class="types-div">
-
+      <div class="type-item-div">
+        <div style=" text-align: center;" v-for="item in typesList">
+          <div class="icon-wrapper icon-bgColor" >
+            <i class="iconfont  type-icon ye-font-size-60" :class="item.icon"></i>
+          </div>
+          <p class="ye-font-size-28">{{item.title}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -18,7 +25,14 @@
   export default {
     data() {
       return {
-        bannerList: [] // 轮播图列表
+        bannerList: [], // 轮播图列表
+        typesList: [
+          {title:'每日推荐',icon:'iconrili'},
+          {title:'歌单',icon:'icongedan'},
+          {title:'排行榜',icon:'iconicon-paihangbangx'},
+          {title:'电台',icon:'iconwodediantai'},
+          {title:'直播',icon:'iconzhibo'},
+        ]
 
       }
     },
@@ -62,4 +76,17 @@
     height: 100%;
 
   }
+  .types-div{
+    padding: .3rem .2rem;box-sizing: border-box;
+    .type-item-div{
+      display: flex;justify-content: space-between;align-items: center;
+      .icon-wrapper{
+        width: 1rem;height: 1rem;border-radius: 50%;display: table;text-align: center;
+        .type-icon{
+          display: table-cell; vertical-align: middle;color: white
+        }
+      }
+    }
+  }
+
 </style>

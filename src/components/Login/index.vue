@@ -1,11 +1,11 @@
 <template>
   <div class="login-container">
     <div class="input-div">
-      <i class="iconfont iconshouji1 ye-font-size-40"></i>
+      <i class="iconfont login-icon iconshouji1 ye-font-size-40"></i>
       <input type="text" class="phone-input" placeholder="请输入手机号或邮箱" v-model="phone">
     </div>
     <div class="input-div">
-      <i class="iconfont iconsuo2 ye-font-size-40"></i>
+      <i class="iconfont login-icon iconsuo2 ye-font-size-40"></i>
       <input type="password" class="password" placeholder="请输入密码" v-model="password">
     </div>
     <div class="btn-wrapper">
@@ -123,7 +123,7 @@
     position: relative;
   }
 
-  .iconfont{
+  .login-icon{
     position: absolute;
     left: 1.35rem;
   }

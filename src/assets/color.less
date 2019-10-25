@@ -5,11 +5,14 @@
 @ye-bgColor2:#18191B; // 夜间背景颜色
 @ye-bgColor3:#ECECEC; // 白天slider头部背景颜色
 @ye-bgColor4:#2b262c; // 夜间slider头部背景颜色
+@ye-bgColor5:#3c3c3e;
+@ye-bgColor6:#dd001b;
 @ye-color1:  #999; // 白天字体颜色
 @ye-color2:  #3d3d3d; // 白天选中字体颜色
 @ye-color3:  #727375; // 夜间字体颜色
 @ye-color4:  #2b262c; // 夜间字体颜色
 @ye-color5:  #ffffff; // 夜间选中字体颜色
+
 
 
 /**
@@ -34,9 +37,10 @@
 .themColor(
   @bgColor: @ye-bgColor1, // 默认背景色
   @fontColor: @ye-color1, // 字体颜色
-  @fontSelect:@ye-color2, // 选中字体颜色
-  @bgColor1:@ye-bgColor3, // slider 头部背景颜色
-  @bdColor:@ye-border1 // slider 边框颜色
+  @fontSelect: @ye-color2, // 选中字体颜色
+  @bgColor1: @ye-bgColor3, // slider 头部背景颜色
+  @bdColor: @ye-border1, // slider 边框颜色,
+  @iconType: @ye-bgColor6 // find页面颜色
 ) {
   background: @bgColor;
   color: @fontColor;
@@ -61,17 +65,24 @@
   .ye-borderColor{
     border-bottom-color:@bdColor!important;
   }
+  //发现页icon的颜色
+  .icon-bgColor{
+    background: @iconType;
+  }
 }
 .them{
+  // 这里显示的是白板的颜色
   .themColor()
 }
 .them-dark{
+  // 黑版的颜色
   .themColor(
     @ye-bgColor2 ,
     @ye-color3,
     @ye-color5,
     @ye-color4,
-    @ye-border2
+    @ye-border2,
+    @ye-bgColor5
   )
 }
 
