@@ -7,10 +7,11 @@ const Login = resolve => require(['@/components/Login/index'], resolve)
 const Search = resolve => require(['@/components/Search/index'], resolve)
 const Slider = resolve => require(['@/components/Slider/index'], resolve)
 const Order = resolve => require(['@/components/MyOrder/index'], resolve)
+const SongsList = resolve => require(['@/components/Public/SongsList'], resolve)
 
 let routes = [
   {
-    path: '/',
+    path: '/home',
     name: Home,
     component: Home
   },
@@ -36,6 +37,11 @@ let routes = [
     meta: {
       auth: true
     }
+  },
+  {
+    path:'/',
+    name: SongsList,
+    component: SongsList
   }
 ]
 

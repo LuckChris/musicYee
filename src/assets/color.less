@@ -2,16 +2,16 @@
 @ye-border1:#ECECEC; // slider 白天边框的颜色
 @ye-border2:#212224; // slider 夜间边框的颜色
 @ye-bgColor1:#fff; // 白天背景颜色
-@ye-bgColor2:#18191B; // 夜间背景颜色
-@ye-bgColor3:#ECECEC; // 白天slider头部背景颜色
+@ye-bgColor2:#161619; // 夜间背景颜色
+@ye-bgColor3: #f8f5f6; // 白天slider头部背景颜色
 @ye-bgColor4:#2b262c; // 夜间slider头部背景颜色
-@ye-bgColor5:#3c3c3e;
-@ye-bgColor6:#dd001b;
+@ye-bgColor5: linear-gradient(90deg,#3d3d3e,#383839); // icon 颜色
+@ye-bgColor6: linear-gradient(90deg,#ff5a4c,#ff1d11);
 @ye-color1:  #999; // 白天字体颜色
 @ye-color2:  #3d3d3d; // 白天选中字体颜色
 @ye-color3:  #727375; // 夜间字体颜色
 @ye-color4:  #2b262c; // 夜间字体颜色
-@ye-color5:  #ffffff; // 夜间选中字体颜色
+@ye-color5: #e5e5e5; // 夜间选中字体颜色
 
 
 
@@ -31,7 +31,13 @@
   color: @ye-color1;
 }
 .ye-color2{
-  color:#dd001b;
+  color:#ff1d11;
+}
+.ye-color3{
+  color: #f4f4f4;
+}
+.ye-color4 {
+  color: @ye-color4;
 }
 
 .themColor(
@@ -40,7 +46,9 @@
   @fontSelect: @ye-color2, // 选中字体颜色
   @bgColor1: @ye-bgColor3, // slider 头部背景颜色
   @bdColor: @ye-border1, // slider 边框颜色,
-  @iconType: @ye-bgColor6 // find页面颜色
+  @iconType: @ye-bgColor6, // find页面颜色
+  @titleColor:@ye-color4   // 标题颜色
+
 ) {
   background: @bgColor;
   color: @fontColor;
@@ -50,6 +58,9 @@
   .mint-navbar .mint-tab-item.is-selected {
     color: @fontSelect !important;
     border-bottom: none !important;
+  }
+  .mint-navbar{
+    background: @bgColor;
   }
   .mint-popup{
     background: @bgColor;
@@ -69,6 +80,9 @@
   .icon-bgColor{
     background: @iconType;
   }
+  .title-color{
+    color:@titleColor ;
+  }
 }
 .them{
   // 这里显示的是白板的颜色
@@ -82,7 +96,8 @@
     @ye-color5,
     @ye-color4,
     @ye-border2,
-    @ye-bgColor5
+    @ye-bgColor5,
+    @ye-color5
   )
 }
 

@@ -2,14 +2,14 @@
   <div class="home-container">
     <div class="tab-container">
       <div class="tab-header flex-between-center">
-        <div class="slider" style="width: .5rem;" @click="showSliderHandler"><i class="iconfont icongengduo"></i></div>
+        <div class="slider" style="width: .5rem;" @click="showSliderHandler"><i class="iconfont icongengduo ye-font-size-32"></i></div>
         <mt-navbar class="page-part" v-model="selected" style="width: 6.5rem;">
           <mt-tab-item id="1">我的</mt-tab-item>
           <mt-tab-item id="2">发现</mt-tab-item>
           <mt-tab-item id="3">朋友</mt-tab-item>
           <mt-tab-item id="4">视频</mt-tab-item>
         </mt-navbar>
-        <div class="search-icon" style="width: .5rem;" @click="searchHandler"><i class="iconfont iconsousuo"></i></div>
+        <div class="search-icon" style="width: .5rem;" @click="searchHandler"><i class="iconfont iconsousuo ye-font-size-32"></i></div>
       </div>
       <!-- tab-container -->
       <mt-tab-container v-model="selected">
@@ -27,7 +27,10 @@
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
-    <HomeSlider v-if="$store.state.showSlider"></HomeSlider>
+
+<!--    注意这里不需要写v-if或者v-show 否则的话mint-popup的动画效果会失效-->
+    <HomeSlider></HomeSlider>
+
   </div>
 </template>
 <script>

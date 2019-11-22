@@ -1,6 +1,6 @@
 <template>
   <div class="slider-container">
-    <mt-popup v-model="$store.state.showSlider"  position="left">
+    <mt-popup v-model="$store.state.showSlider"  position="left"  >
       <div style="height: 100%;overflow: scroll">
         <div class="slider-header">
           <div style="text-align: center;padding-top: .6rem; " class="ye-color1">
@@ -106,9 +106,9 @@
     }
   }
 </script>
-<style lang="less">
+<style lang="less" scoped>
   .mint-popup{
-    width: 72%;height: 100%;transition: .2s ease-out;
+    width: 72%;height: 100%;overflow-y: scroll;-webkit-overflow-scrolling: touch;
   }
   .mint-navbar{
     background: none;
