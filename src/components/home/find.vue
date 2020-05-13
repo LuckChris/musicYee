@@ -43,15 +43,18 @@
           <span style="padding: 0 .1rem;">|</span>
           <span  @click="chooseItem(2)" class="title-color" :class="chooseId == 2 ? 'active-span':''">新歌</span>
         </div>
-        <p class="ye-font-size-28 more">更多新碟</p>
+        <p class="ye-font-size-28 more">{{chooseId == 1 ? '更多新碟' : '更多新歌'}}</p>
       </div>
       <div class="album-list ye-flex-center" >
-        <div class="album-item"  v-for="(song,index) in recommendSongsList">
+        <div class="album-item"  v-for="(song,index) in lists" :key="index">
           <div style="width: 2.2rem;height: 2.2rem;border-radius: .2rem;overflow: hidden;">
-            <img :src="song.picUrl" alt="" style="width: 2.2rem;height: 2.2rem;">
+            <img :src="song.picUrl" alt="" style="width: 2.2rem;height: 2.2rem;" v-if="chooseId == 1 ">
+            <img :src="song.album.blurPicUrl" v-if="chooseId == 2"  style="width: 2.2rem;height: 2.2rem;" >
           </div>
           <p class="ye-more-text-over album-name">{{song.name}}</p>
-          <p>yee</p>
+          <div class="ye-text-over artist">
+            <span v-for="item in song.artists" >{{item.name}}<span v-if="song.artists.length > 1">/</span></span>
+          </div>
         </div>
 
       </div>
@@ -74,7 +77,8 @@
         nowDay:'',
         recommendSongsList: [], // 首页推荐歌单
         chooseId: 1, // 新碟or 新歌
-        albumList:[], // 新碟列表
+        lists:[], // 新碟列表
+        newSongList: [], // 新歌列表
 
       }
     },
@@ -118,21 +122,39 @@
       // 新歌or新碟
       chooseItem(id) {
         this.chooseId = id
+        if(id == 1) {
+          this.getAlbumList()
+        } else {
+          this.getNewSongsList()
+        }
       },
+      // 新碟
       getAlbumList() {
         // albumList  /album?id=32311&limit=30  83594819
         let _params ={
-          limit : 6,
+          limit : 3,
         }
        api.getNewAlbum(_params)
           .then(({albums}) => {
-            this.albumList = albums
+            this.lists = albums
           })
+      },
+
+      // 新歌
+      getNewSongsList() {
+        let _params = {
+          type: 0
+        }
+        api.getNewSongs(_params)
+        .then(({data}) => {
+          this.lists = data.slice(0,3)
+          console.log(this.lists)
+        })
       }
     }
   }
 </script>
-<style lang="less">
+<style lang="less" scoped>
   @fontSize36:.36rem;
   @blackColor: #000;
   .my-container{
@@ -228,6 +250,9 @@
   .album-name{
     width: 2.2rem;
     -webkit-line-clamp: 1;
+  }
+  .artist{
+    width: 2.2rem;
   }
 
 </style>

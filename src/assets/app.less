@@ -14,10 +14,11 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 body{
-  width:7.5rem;
+  width: 100%;
   height: 100%;
   font-size: @font-size-28;
-  margin: 0 auto;
+  // margin: 0 auto;
+  // font-size: 14px;
 }
 ul li{
   list-style: none;
@@ -35,7 +36,12 @@ a{
 .text-center{
   text-align: center
 }
-
+input::-webkit-input-placeholder {
+   /* placeholder颜色  */
+   color: #aab2bd;
+   /* placeholder字体大小  */
+   font-size: 14px;
+}
 
 /**重写min-ui Navbar的样式**/
 .mint-navbar .mint-tab-item:hover{
@@ -74,6 +80,11 @@ a{
   opacity: 1!important;
 }
 
+.mint-popup{
+  border-radius: .15rem;
+
+}
+
 
 // 单行文本超出部分...显示
 .ye-text-over{
@@ -95,6 +106,11 @@ a{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+// 加粗
+.ye-font-bold{
+  font-weight: bold;
 }
 
 

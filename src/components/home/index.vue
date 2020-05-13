@@ -51,7 +51,7 @@
     },
     data() {
       return {
-        selected: '2',
+        selected: '1',
 
       }
     },
@@ -74,9 +74,9 @@
     }
   }
 </script>
-<style lang="less">
+<style lang="less" scoped>
   .tab-header{
-    padding: 0 .2rem;margin-bottom: .2rem;
+    padding: 0 .2rem;margin-bottom: .2rem; box-sizing: border-box;
   }
 
 

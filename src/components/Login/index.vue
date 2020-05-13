@@ -74,9 +74,13 @@
                   password: this.password
                 }
                 this.http.send({ command: '/login/cellphone',params:_params })
-                  .then(function (res) {
-                    console.log(res)
-                  })
+                  .then((res) => {
+					  if(res.code == 502) {
+						this.$toast({
+							message: res.msg
+						})
+					  }
+				  })
               } else if(res.exist == -1){ // 没有注册过
                 this.$toast({
                   message: '请先去注册账号哦'
@@ -98,10 +102,11 @@
   .login-container{
     width: 100%;
     min-height: 100vh;
-    background: lemonchiffon;
     padding-top: 4rem;
     text-align: center;
     box-sizing: border-box;
+	background: url(img/login.png) no-repeat;
+	background-size: cover;
   }
   .btn-wrapper{
     width: 100%;
@@ -126,6 +131,7 @@
   .login-icon{
     position: absolute;
     left: 1.35rem;
+	color: #FFFFFF;
   }
   .iconshouji1{
     top: .18rem;
@@ -141,6 +147,10 @@
     background: rgba(0,0,0,.3);
     padding-left: .5rem;
     box-sizing: border-box;
+
+  }
+  input::-webkit-input-placeholder { /* WebKit browsers */ 
+  	color: #FFFFFF;
   }
   .input-div input:focus {
     outline: medium;

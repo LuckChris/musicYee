@@ -11,7 +11,7 @@ const SongsList = resolve => require(['@/components/Public/SongsList'], resolve)
 
 let routes = [
   {
-    path: '/home',
+    path: '/',
     name: Home,
     component: Home
   },
@@ -39,7 +39,7 @@ let routes = [
     }
   },
   {
-    path:'/',
+    path:'/songlist',
     name: SongsList,
     component: SongsList
   }

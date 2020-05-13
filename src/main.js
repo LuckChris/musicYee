@@ -9,10 +9,12 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
 
+import VueCompositionApi from '@vue/composition-api'
+
 Vue.prototype.http = http
 Vue.prototype.util = util
 
-
+Vue.use(VueCompositionApi)
 
 Vue.config.productionTip = false
 

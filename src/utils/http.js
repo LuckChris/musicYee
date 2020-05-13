@@ -25,12 +25,19 @@ self.BASE_URL = '/api'
  * **/
 self.send = function (_options) {
   var _path = self.BASE_URL + _options.command
+  if(_options.loading) {
+    setTimeout(() => {
+      Indicator.open({
+        spinnerType: 'fading-circle'
+      })
+    }, 10)
+  }
   let _configure ={
     method: 'get',
     responseType: 'json',
     params: _options.params,
     url: _path,
-    timeout: 2000
+    timeout: 20000
   }
   if(_options.type == 'post') {
     _configure = {
@@ -38,19 +45,17 @@ self.send = function (_options) {
       responseType: 'json',
       data: qs.stringify(_options.params),
       url: _path,
-      timeout: 2000
+      timeout: 20000
     }
   }
   return axios(_configure)
     .then(function (res) {
       if(_options.loading) {
-        setTimeout(() => {
-          Indicator.open({
-            spinnerType: 'fading-circle'
-          })
-        }, 10)
+        setTimeout(function(){
+          Indicator.close()
+        },10)
       }
-      if(res.data && res.data.code == 200) {
+      if(res.data) {
         return res.data
       }
 

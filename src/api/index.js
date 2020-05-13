@@ -4,7 +4,9 @@ import {
   banner,
   personalized,
   newAlbum,
-  albumInfo
+  albumInfo,
+  newSongs,
+  createNewSongs
 } from "./config"
 
 export default {
@@ -37,5 +39,22 @@ export default {
   getAlbumInfo(params) {
     return http.send({ command: albumInfo, params})
 
-  }
+  },
+
+  /**
+   * 获取新歌
+   * type  0全部 7华语 96欧美 8日本 16韩国
+   * **/
+  getNewSongs(params,) {
+    return http.send({ command: newSongs, params, loading :true})
+  },
+
+  /**
+   * 新建歌单
+   * name 歌单名
+   */
+
+   createNewSongs(params) {
+     return http.send({ command: createNewSongs, params })
+   }
 }
